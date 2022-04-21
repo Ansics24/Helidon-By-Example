@@ -14,7 +14,7 @@ public class CategoriesServiceImpl implements CategoriesService {
     private AtomicReference<String> categoryName = new AtomicReference<>();
 
     @Inject
-    public CategoriesServiceImpl(@ConfigProperty(name = "app.categoryName") String categoryName) {
+    public CategoriesServiceImpl(@ConfigProperty(name = "customer.first_name") String categoryName) {
         this.categoryName.set(categoryName);
     }
 
