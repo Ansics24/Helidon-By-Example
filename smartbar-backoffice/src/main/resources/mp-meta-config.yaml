@@ -3,5 +3,4 @@ add-default-sources: true
 sources:
   - type: "yaml"
     ordinal: 150
-    optional: true
-    url: "https://filesamples.com/samples/code/yaml/invoice.yaml"
+    classpath: "META-INF/smartbar-config.yaml"

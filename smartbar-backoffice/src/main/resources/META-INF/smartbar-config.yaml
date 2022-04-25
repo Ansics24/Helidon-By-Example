@@ -1,2 +1,12 @@
 app:
   categoryName: Water
+
+javax:
+  sql:
+    DataSource:
+      backoffice:
+        dataSourceClassName: org.postgres.ds.PGSimpleDataSource
+        dataSource:
+          url: jdbc:postgresql://localhost:5432/smartbar
+          user: postgres
+          password: postgres
