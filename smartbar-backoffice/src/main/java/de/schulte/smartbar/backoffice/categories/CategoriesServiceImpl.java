@@ -27,7 +27,18 @@ public class CategoriesServiceImpl implements CategoriesService {
 
     @Override
     @Transactional
-    public Category save(Category category) {
+    public Category insertNew(Category category) {
         return entityManager.merge(category);
+    }
+
+    @Override
+    @Transactional
+    public Category update(int id, Category category) {
+        final Category existingCategory = entityManager.find(Category.class, id);
+        if(existingCategory == null) {
+            throw new EntityNotFoundException(id);
+        }
+        existingCategory.setName(category.getName());
+        return existingCategory;
     }
 }

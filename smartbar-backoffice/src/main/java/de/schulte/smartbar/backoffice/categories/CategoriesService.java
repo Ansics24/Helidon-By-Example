@@ -6,6 +6,8 @@ public interface CategoriesService {
 
     List<Category> listAll();
 
-    Category save(Category category);
+    Category insertNew(Category category);
+
+    Category update(int id, Category category);
 
 }
