@@ -19,13 +19,6 @@ public class CategoriesServiceImpl implements CategoriesService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    private AtomicReference<String> categoryName = new AtomicReference<>();
-
-    @Inject
-    public CategoriesServiceImpl(@ConfigProperty(name = "app.categoryName") String categoryName) {
-        this.categoryName.set(categoryName);
-    }
-
     @Override
     @Transactional
     public List<Category> listAll() {

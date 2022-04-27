@@ -1,6 +1,3 @@
-app:
-  categoryName: Water
-
 javax:
   sql:
     DataSource:
