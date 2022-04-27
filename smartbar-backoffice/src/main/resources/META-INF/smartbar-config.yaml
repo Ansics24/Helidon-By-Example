@@ -5,7 +5,7 @@ javax:
   sql:
     DataSource:
       backoffice:
-        dataSourceClassName: org.postgres.ds.PGSimpleDataSource
+        dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
         dataSource:
           url: jdbc:postgresql://localhost:5432/smartbar
           user: postgres

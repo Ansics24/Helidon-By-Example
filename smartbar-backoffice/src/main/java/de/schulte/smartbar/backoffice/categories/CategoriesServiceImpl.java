@@ -6,16 +6,18 @@ import java.util.concurrent.atomic.AtomicReference;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
+import javax.transaction.Transactional;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 @ApplicationScoped
 public class CategoriesServiceImpl implements CategoriesService {
 
-    @Inject
-    @Named("backoffice")
-    private DataSource dataSource;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     private AtomicReference<String> categoryName = new AtomicReference<>();
 
@@ -25,7 +27,8 @@ public class CategoriesServiceImpl implements CategoriesService {
     }
 
     @Override
+    @Transactional
     public List<Category> listAll() {
-        return List.of(new Category(this.categoryName.get()));
+        return entityManager.createQuery("select c from Category c", Category.class).getResultList();
     }
 }
