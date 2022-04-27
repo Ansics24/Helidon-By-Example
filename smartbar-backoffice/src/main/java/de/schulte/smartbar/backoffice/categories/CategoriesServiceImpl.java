@@ -24,4 +24,10 @@ public class CategoriesServiceImpl implements CategoriesService {
     public List<Category> listAll() {
         return entityManager.createQuery("select c from Category c", Category.class).getResultList();
     }
+
+    @Override
+    @Transactional
+    public Category save(Category category) {
+        return entityManager.merge(category);
+    }
 }

@@ -1,3 +1,6 @@
+-- Creating a sequence
+create sequence smartbar_sequence increment 50 minvalue 100 start 100;
+
 -- Creating categories
 
 create table categories(

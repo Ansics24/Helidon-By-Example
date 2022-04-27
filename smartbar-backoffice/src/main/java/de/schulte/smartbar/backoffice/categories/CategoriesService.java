@@ -6,4 +6,6 @@ public interface CategoriesService {
 
     List<Category> listAll();
 
+    Category save(Category category);
+
 }
