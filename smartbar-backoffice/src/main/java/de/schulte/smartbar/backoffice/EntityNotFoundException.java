@@ -1,4 +1,4 @@
-package de.schulte.smartbar.backoffice.categories;
+package de.schulte.smartbar.backoffice;
 
 public class EntityNotFoundException extends RuntimeException {
 

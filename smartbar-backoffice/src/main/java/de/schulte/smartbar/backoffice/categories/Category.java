@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import de.schulte.smartbar.backoffice.SmartbarEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,10 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name="categories")
-public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "smartbar_sequence")
-    private Integer id;
+public class Category extends SmartbarEntity {
 
     @Column(name = "name")
     private String name;
