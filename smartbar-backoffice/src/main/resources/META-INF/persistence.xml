@@ -2,5 +2,6 @@
     <persistence-unit name="backoffice" transaction-type="JTA">
         <class>de.schulte.smartbar.backoffice.categories.Category</class>
         <class>de.schulte.smartbar.backoffice.articles.Article</class>
+        <class>de.schulte.smartbar.backoffice.tables.SmartbarTable</class>
     </persistence-unit>
 </persistence>

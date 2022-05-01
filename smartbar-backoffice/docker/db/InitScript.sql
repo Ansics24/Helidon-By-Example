@@ -34,3 +34,15 @@ insert into articles values (12, 'Vegetarian pasta', 5.0, 2);
 insert into articles values (13, 'Pizza margharita', 4.5, 2);
 insert into articles values (14, 'White russian', 4.5, 8);
 insert into articles values (15, 'Pina colada', 4.5, 8);
+
+-- Creating tables
+
+create table smartbar_table (
+    id bigint not null primary key,
+    name varchar(30) not null
+);
+
+insert into smartbar_table values (20, 'New York');
+insert into smartbar_table values (21, 'Berlin');
+insert into smartbar_table values (22, 'Peking');
+insert into smartbar_table values (23, 'Madrid');
