@@ -2,12 +2,15 @@ package de.schulte.smartbar.backoffice.tables;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import de.schulte.smartbar.backoffice.EntityNotFoundException;
+import io.helidon.security.annotations.Authenticated;
+import io.helidon.security.annotations.Authorized;
 
 @ApplicationScoped
 @Transactional

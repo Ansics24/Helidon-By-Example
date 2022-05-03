@@ -7,3 +7,14 @@ javax:
           url: jdbc:postgresql://localhost:5432/smartbar
           user: postgres
           password: postgres
+security:
+  providers:
+    - http-basic-auth:
+        realm: smartbar
+        users:
+          - login: admin
+            password: ${CLEAR=admin}
+            roles: ["admin"]
+          - login: bob
+            password: bob
+            roles: ["user"]
