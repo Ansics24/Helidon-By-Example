@@ -13,8 +13,8 @@ security:
         realm: smartbar
         users:
           - login: admin
-            password: ${CLEAR=admin}
+            password: ${GCM=S4Li4AF4O7yL7r53crTqpjeLGsXTJjoHDn09uEAbNLkrsQ8Ow+07u6exk2ew0I+maA==}
             roles: ["admin"]
           - login: bob
-            password: bob
+            password: ${GCM=jNWC8EGPh/xi9nfr6GBAdz4SD3BYZLTRds0ybRXuwrBqbZCFj3EFuf7ZpQuMqNw=}
             roles: ["user"]
