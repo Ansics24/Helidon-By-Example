@@ -8,13 +8,18 @@ javax:
           user: postgres
           password: postgres
 security:
+  config:
+    rsa:
+      keystore-resource-path: "keystore.jks"
+      key-alias: "smartbaralias"
+      keystore-passphrase: "smartbarbackoffice"
   providers:
     - http-basic-auth:
         realm: smartbar
         users:
           - login: admin
-            password: ${GCM=S4Li4AF4O7yL7r53crTqpjeLGsXTJjoHDn09uEAbNLkrsQ8Ow+07u6exk2ew0I+maA==}
+            password: ${RSA-P=FFO2yJo8BatVKGW7eSSH4ngQF5RxCPuiHpL3A2u/Z2F2NXBTIjlW09qzQzweXy9cjDHRYA2cChwQK3ssvJOAFqfHpTcx3T4l3aZf4sBtdKKKsqvAZ2s6qVh55gA+dRq0lC7xBQgZALrka/CC0sxr3Q/b/QadO0bqaopY36clH+u93JOmnpcNj/CSLrNSv/GyUb3AeIWLItrIRgSnW2B6XZLj5W34joPx6c+DzkoaP0aiSyjclh3Hp/EwZSaUeZ8Wa7xWff7g3L3DrpkaVRk+/osK91l7HMEuLzdTMplkZFEVJ++6UzB4o3CSQKr6k+hApVw5eRgDARLUAQTAGXGqhw==}
             roles: ["admin"]
           - login: bob
-            password: ${GCM=jNWC8EGPh/xi9nfr6GBAdz4SD3BYZLTRds0ybRXuwrBqbZCFj3EFuf7ZpQuMqNw=}
+            password: ${RSA-P=OabuFj0b3A5rdI/U/VtmF5nuT/Q3e4i4p9qZT2w7u8CMRMtB+RXPqbhxZCuEqcQUB3GEz1BCyTaLn66A+UQGdQkvfM3FC1IZLB3biAR6hkIRpsL4krjwAOo6O5aKr5D48XZUwIwRknc05dFQ+xlzV7GKcYBvluELtb+g1atjDNuzNRJkSrSvCGpz0CwEtoA7yvtMJ7yha2VU5znIH+q48BVVzlX0mF4+0hDlAISoBhB+DLcPl2xLvGIO/wW+Tp3jNcBxQiAHvrSjdwmBEMh+NnqqEqiawe9QXPSUf1E9+O02WJGX+Bx2lpJCAFJmmc3Yh5qnOI6jhg4cpRno1pwiRQ==}
             roles: ["user"]
