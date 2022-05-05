@@ -3,7 +3,6 @@ package de.schulte.smartbar.backoffice.tables;
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
-import javax.ws.rs.OPTIONS;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -11,7 +10,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
 import de.schulte.smartbar.backoffice.EntityNotFoundException;
-import io.helidon.microprofile.cors.CrossOrigin;
 import io.helidon.security.annotations.Authenticated;
 import io.helidon.security.annotations.Authorized;
 
@@ -45,16 +43,5 @@ public class TablesResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
-
-    @OPTIONS
-    @CrossOrigin
-    public void options() {
-
-    }
-
-    @OPTIONS
-    @Path("/{id}")
-    @CrossOrigin(allowMethods = {"PUT"}, value = "http://foo.de")
-    public void optionsForChangingTables(){}
 
 }
