@@ -7,10 +7,3 @@ services:
       POSTGRES_DB: smartbar
     ports:
       - 5432:5432
-  keycloak:
-    image: quay.io/keycloak/keycloak:11.0.2
-    environment:
-      KEYCLOAK_USER: smartbar
-      KEYCLOAK_PASSWORD: smartbar
-    ports:
-      - 7000:8080

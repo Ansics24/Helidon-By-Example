@@ -14,13 +14,6 @@ security:
       key-alias: "smartbaralias"
       keystore-passphrase: "smartbarbackoffice"
   providers:
-    - oidc:
-        redirect-uri: "/oidc/redirect/*"
-        audience: "account"
-        client-id: "smartbar-backoffice"
-        client-secret: "97123863-15af-4063-9714-51dada4ade8f"
-        identity-uri: "http://localhost:7000/auth/realms/smartbar"
-        frontend-uri: "http://localhost:7001"
     - http-basic-auth:
         realm: smartbar
         users:
