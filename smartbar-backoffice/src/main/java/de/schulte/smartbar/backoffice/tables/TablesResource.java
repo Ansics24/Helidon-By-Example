@@ -16,7 +16,7 @@ import io.helidon.security.annotations.Authorized;
 @Path("/tables")
 @Authenticated
 @Authorized
-@RolesAllowed("admin")
+@RolesAllowed("smartbar-admin")
 public class TablesResource {
 
     @Inject
