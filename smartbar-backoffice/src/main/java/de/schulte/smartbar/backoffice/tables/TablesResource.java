@@ -10,6 +10,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
+import org.eclipse.microprofile.metrics.Counter;
+import org.eclipse.microprofile.metrics.Meter;
+import org.eclipse.microprofile.metrics.annotation.Metric;
+
 import de.schulte.smartbar.backoffice.EntityNotFoundException;
 import io.helidon.security.annotations.Authenticated;
 import io.helidon.security.annotations.Authorized;
@@ -19,6 +23,10 @@ import io.helidon.security.annotations.Authorized;
 @Authorized
 @RolesAllowed("admin")
 public class TablesResource {
+
+    @Inject
+    @Metric(name = "table inserts with short names")
+    private Meter counterForSmallTableNames;
 
     @Inject
     private TablesService tablesService;
@@ -31,6 +39,9 @@ public class TablesResource {
     @POST
     public Response insertNew(@Valid SmartbarTable table) {
         final SmartbarTable smartbarTable = tablesService.insertNew(table);
+        if(smartbarTable.getName().length() < 4) {
+            counterForSmallTableNames.mark();
+        }
         return Response.status(Response.Status.CREATED).entity(smartbarTable).build();
     }
 

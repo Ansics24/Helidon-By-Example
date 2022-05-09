@@ -8,9 +8,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
+import org.eclipse.microprofile.metrics.annotation.Counted;
+
 import de.schulte.smartbar.backoffice.EntityNotFoundException;
 
 @Path("/categories")
+@Counted
 public class CategoriesResource {
 
     private final CategoriesService categoriesService;

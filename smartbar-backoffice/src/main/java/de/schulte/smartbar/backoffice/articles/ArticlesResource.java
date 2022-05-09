@@ -9,6 +9,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Metered;
+import org.eclipse.microprofile.metrics.annotation.SimplyTimed;
+import org.eclipse.microprofile.metrics.annotation.Timed;
+
 import de.schulte.smartbar.backoffice.EntityNotFoundException;
 
 @Path("/categories")
@@ -26,6 +31,7 @@ public class ArticlesResource {
 
     @POST
     @Path("/{categoryId}/articles")
+    @Metered(name = "modifying/inserting articles", reusable = true)
     public Response createNewArticle(@PathParam("categoryId") int categoryId, Article article) {
         try {
             return Response.status(Response.Status.CREATED)
@@ -38,6 +44,7 @@ public class ArticlesResource {
 
     @PUT
     @Path("/{categoryId}/articles/{articleId}")
+    @Metered(name = "modifying/inserting articles", reusable = true)
     public Response update(@PathParam("categoryId") int categoryId, @PathParam("articleId") int articleId, Article article) {
         try {
             return Response.ok(articlesService.update(categoryId, articleId, article)).build();
