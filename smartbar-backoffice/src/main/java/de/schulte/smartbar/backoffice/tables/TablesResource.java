@@ -2,6 +2,7 @@ package de.schulte.smartbar.backoffice.tables;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -28,7 +29,7 @@ public class TablesResource {
     }
 
     @POST
-    public Response insertNew(SmartbarTable table) {
+    public Response insertNew(@Valid SmartbarTable table) {
         final SmartbarTable smartbarTable = tablesService.insertNew(table);
         return Response.status(Response.Status.CREATED).entity(smartbarTable).build();
     }
