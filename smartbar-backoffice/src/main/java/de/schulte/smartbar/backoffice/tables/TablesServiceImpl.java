@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.eclipse.microprofile.faulttolerance.Timeout;
+
 import de.schulte.smartbar.backoffice.EntityNotFoundException;
 import io.helidon.security.annotations.Authenticated;
 import io.helidon.security.annotations.Authorized;
@@ -20,6 +22,7 @@ public class TablesServiceImpl implements TablesService {
     private EntityManager entityManager;
 
     @Override
+    @Timeout(1000)
     public List<SmartbarTable> listAll() {
         return entityManager.createQuery("select t from SmartbarTable t", SmartbarTable.class).getResultList();
     }
