@@ -23,3 +23,7 @@ security:
           - login: bob
             password: ${RSA-P=OabuFj0b3A5rdI/U/VtmF5nuT/Q3e4i4p9qZT2w7u8CMRMtB+RXPqbhxZCuEqcQUB3GEz1BCyTaLn66A+UQGdQkvfM3FC1IZLB3biAR6hkIRpsL4krjwAOo6O5aKr5D48XZUwIwRknc05dFQ+xlzV7GKcYBvluELtb+g1atjDNuzNRJkSrSvCGpz0CwEtoA7yvtMJ7yha2VU5znIH+q48BVVzlX0mF4+0hDlAISoBhB+DLcPl2xLvGIO/wW+Tp3jNcBxQiAHvrSjdwmBEMh+NnqqEqiawe9QXPSUf1E9+O02WJGX+Bx2lpJCAFJmmc3Yh5qnOI6jhg4cpRno1pwiRQ==}
             roles: ["user"]
+
+metrics:
+  rest-request:
+    enabled: true
