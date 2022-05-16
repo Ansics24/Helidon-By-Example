@@ -12,7 +12,6 @@ security:
     rsa:
       keystore-resource-path: "keystore.jks"
       key-alias: "smartbaralias"
-      keystore-passphrase: "smartbarbackoffice"
   providers:
     - http-basic-auth:
         realm: smartbar
