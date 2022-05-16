@@ -4,6 +4,9 @@ FROM helidon/jdk11-graalvm-maven:21.3.0 as build
 
 WORKDIR /helidon
 
+ARG keystore_pw
+ENV SECURE_CONFIG_PRIVATE_KEYSTORE_PASSPHRASE=$keystore_pw
+
 # Create a first layer to cache the "Maven World" in the local repository.
 # Incremental docker builds will always resume after that, unless you update
 # the pom
