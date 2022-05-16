@@ -21,9 +21,9 @@ FROM openjdk:11-jre-slim
 WORKDIR /helidon
 
 # Copy the binary built in the 1st stage
-COPY --from=build /helidon/target/helidon-quickstart-mp.jar ./
+COPY --from=build /helidon/target/smartbar-backoffice.jar ./
 COPY --from=build /helidon/target/libs ./libs
 
-CMD ["java", "-jar", "helidon-quickstart-mp.jar"]
+CMD ["java", "-jar", "smartbar-backoffice.jar"]
 
-EXPOSE 8080
+EXPOSE 7001

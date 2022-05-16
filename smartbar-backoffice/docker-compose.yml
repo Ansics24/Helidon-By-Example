@@ -1,0 +1,17 @@
+services:
+  db:
+    build:
+      context: ./docker/db
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: smartbar
+    ports:
+      - 5432:5432
+  smartbar-backoffice:
+    build:
+      context: .
+    environment:
+      SECURE_CONFIG_PRIVATE_KEYSTORE_PASSPHRASE: smartbarbackoffice
+      javax.sql.DataSource.backoffice.dataSource.url: jdbc:postgresql://db:5432/smartbar
+    ports:
+      - 7001:7001
