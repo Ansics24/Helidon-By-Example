@@ -1,6 +1,7 @@
 
 package de.schulte.smartbar.orderclient;
 
+import de.schulte.smartbar.orderclient.login.LoginService;
 import io.helidon.common.LogConfig;
 import io.helidon.common.reactive.Single;
 import io.helidon.config.Config;
@@ -52,7 +53,7 @@ public final class Main {
         // Try to start the server. If successful, print some info and arrange to
         // print a message at shutdown. If unsuccessful, print the exception.
         webserver.thenAccept(ws -> {
-                    System.out.println("WEB server is up! http://localhost:" + ws.port() + "/greet");
+                    System.out.println("WEB server is up!");
                     ws.whenShutdown().thenRun(() -> System.out.println("WEB server is DOWN. Good bye!"));
                 })
                 .exceptionallyAccept(t -> {
@@ -72,15 +73,16 @@ public final class Main {
     private static Routing createRouting(Config config) {
 
         MetricsSupport metrics = MetricsSupport.create();
-        GreetService greetService = new GreetService(config);
         HealthSupport health = HealthSupport.builder()
                 .addLiveness(HealthChecks.healthChecks())   // Adds a convenient set of checks
                 .build();
 
+        final LoginService loginService = new LoginService();
+
         return Routing.builder()
                 .register(health)                   // Health at "/health"
-                .register(metrics)                  // Metrics at "/metrics"
-                .register("/greet", greetService)
+                .register(metrics)
+                .register(loginService)// Metrics at "/metrics"
                 .build();
     }
 }
